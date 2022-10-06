@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		FAD8412D28EECC9B00B32CFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8412C28EECC9B00B32CFB /* AppDelegate.swift */; };
 		FAD8412F28EECC9B00B32CFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8412E28EECC9B00B32CFB /* SceneDelegate.swift */; };
-		FAD8413128EECC9B00B32CFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8413028EECC9B00B32CFB /* ViewController.swift */; };
+		FAD8413128EECC9B00B32CFB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8413028EECC9B00B32CFB /* SearchViewController.swift */; };
 		FAD8413428EECC9B00B32CFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8413228EECC9B00B32CFB /* Main.storyboard */; };
 		FAD8413628EECC9B00B32CFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD8413528EECC9B00B32CFB /* Assets.xcassets */; };
 		FAD8413928EECC9B00B32CFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD8413728EECC9B00B32CFB /* LaunchScreen.storyboard */; };
+		FAD8414228EEF07400B32CFB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414128EEF07400B32CFB /* TabBarController.swift */; };
+		FAD8414428EEF9AC00B32CFB /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414328EEF9AC00B32CFB /* BuyViewController.swift */; };
+		FAD8414628EEF9BB00B32CFB /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414528EEF9BB00B32CFB /* ForYouViewController.swift */; };
+		FAD8414828EEF9F900B32CFB /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414728EEF9F900B32CFB /* BasketViewController.swift */; };
+		FAD8414A28EF2DE800B32CFB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414928EF2DE800B32CFB /* ProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FAD8412928EECC9B00B32CFB /* AppleShopDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleShopDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD8412C28EECC9B00B32CFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD8412E28EECC9B00B32CFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAD8413028EECC9B00B32CFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAD8413028EECC9B00B32CFB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FAD8413328EECC9B00B32CFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD8413528EECC9B00B32CFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD8413828EECC9B00B32CFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD8413A28EECC9B00B32CFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAD8414128EEF07400B32CFB /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FAD8414328EEF9AC00B32CFB /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		FAD8414528EEF9BB00B32CFB /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
+		FAD8414728EEF9F900B32CFB /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		FAD8414928EF2DE800B32CFB /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +68,16 @@
 			children = (
 				FAD8412C28EECC9B00B32CFB /* AppDelegate.swift */,
 				FAD8412E28EECC9B00B32CFB /* SceneDelegate.swift */,
-				FAD8413028EECC9B00B32CFB /* ViewController.swift */,
 				FAD8413228EECC9B00B32CFB /* Main.storyboard */,
 				FAD8413528EECC9B00B32CFB /* Assets.xcassets */,
 				FAD8413728EECC9B00B32CFB /* LaunchScreen.storyboard */,
 				FAD8413A28EECC9B00B32CFB /* Info.plist */,
+				FAD8414128EEF07400B32CFB /* TabBarController.swift */,
+				FAD8414328EEF9AC00B32CFB /* BuyViewController.swift */,
+				FAD8414528EEF9BB00B32CFB /* ForYouViewController.swift */,
+				FAD8413028EECC9B00B32CFB /* SearchViewController.swift */,
+				FAD8414728EEF9F900B32CFB /* BasketViewController.swift */,
+				FAD8414928EF2DE800B32CFB /* ProductViewController.swift */,
 			);
 			path = AppleShopDZ;
 			sourceTree = "<group>";
@@ -160,8 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD8413128EECC9B00B32CFB /* ViewController.swift in Sources */,
+				FAD8413128EECC9B00B32CFB /* SearchViewController.swift in Sources */,
+				FAD8414428EEF9AC00B32CFB /* BuyViewController.swift in Sources */,
+				FAD8414828EEF9F900B32CFB /* BasketViewController.swift in Sources */,
 				FAD8412D28EECC9B00B32CFB /* AppDelegate.swift in Sources */,
+				FAD8414628EEF9BB00B32CFB /* ForYouViewController.swift in Sources */,
+				FAD8414228EEF07400B32CFB /* TabBarController.swift in Sources */,
+				FAD8414A28EF2DE800B32CFB /* ProductViewController.swift in Sources */,
 				FAD8412F28EECC9B00B32CFB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
