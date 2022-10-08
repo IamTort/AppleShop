@@ -12,28 +12,28 @@ final class SearchViewController: UIViewController {
 
     // MARK: - Private enum
     private enum Constants {
-        static let titleLable = "Поиск"
-        static let placeholderSearchBar = "Поиск по продуктам и магазинам"
+        static let title = "Поиск"
+        static let placeholder = "Поиск по продуктам и магазинам"
         static let sawLabl = "Недавно просмотренные"
         static let delete = "Очистить"
-        static let searchesLabl = "Варианты запросов"
-        static let caseMacLabl = "Чехол Incase Flat для MacBook pro 16 дюймов"
-        static let beltLabl = "Спортивный ремешок Black Unity (для к..."
-        static let leatherCaseLabl = "Кожаный чехол для MacBook Pro 16 дюймов, золотой"
-        static let caseImage = "case2"
-        static let beltImage = "4"
-        static let leatherImage = "2"
-        static let glassImage = "magnifyingglass"
-        static let airPodsLabl = "AirPods"
-        static let appleLabl = "AppleCare"
-        static let beatsLabl = "Beats"
-        static let iphoneLabl = "Cравните модели IPhone"
+        static let searches = "Варианты запросов"
+        static let caseMacText = "Чехол Incase Flat для MacBook pro 16 дюймов"
+        static let beltText = "Спортивный ремешок Black Unity (для к..."
+        static let leatherCaseText = "Кожаный чехол для MacBook Pro 16 дюймов, золотой"
+        static let caseImageName = "case2"
+        static let beltImageName = "4"
+        static let leatherImageName = "2"
+        static let glassImageName = "magnifyingglass"
+        static let airPodsText = "AirPods"
+        static let appleText = "AppleCare"
+        static let beatsText = "Beats"
+        static let iphoneText = "Cравните модели IPhone"
     }
     
     // MARK: - Visual components
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.titleLable
+        label.text = Constants.title
         label.frame = CGRect(x: 20, y: 80, width: 200, height: 40)
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 35)
@@ -42,7 +42,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var searchBar: UISearchBar = {
         let search = UISearchBar()
-        search.placeholder = Constants.placeholderSearchBar
+        search.placeholder = Constants.placeholder
         search.frame = CGRect(x: 10, y: 130, width: 400, height: 40)
         search.barTintColor = .black
         return search
@@ -76,7 +76,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var searchesLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.searchesLabl
+        label.text = Constants.searches
         label.frame = CGRect(x: 20, y: 480, width: 400, height: 40)
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 21)
@@ -93,7 +93,7 @@ final class SearchViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .black
         navigationItem.title = " "
-        tabBarController?.title = Constants.titleLable
+        tabBarController?.title = Constants.title
         view.addSubview(titleLabel)
         view.addSubview(searchBar)
         view.addSubview(sawLabel)
@@ -101,17 +101,17 @@ final class SearchViewController: UIViewController {
         view.addSubview(horisontalScrollView)
         view.addSubview(searchesLabel)
         
-        createItemsView(title: Constants.caseMacLabl,
-                        image: UIImage(named: Constants.caseImage), tag: 0, coordinateX: 0)
-        createItemsView(title: Constants.beltLabl,
-                        image: UIImage(named: Constants.beltImage), tag: 1, coordinateX: 140)
-        createItemsView(title: Constants.leatherCaseLabl,
-                        image: UIImage(named: Constants.leatherImage), tag: 2, coordinateX: 280)
+        createItemsView(title: Constants.caseMacText,
+                        image: UIImage(named: Constants.caseImageName), tag: 0, coordinateX: 0)
+        createItemsView(title: Constants.beltText,
+                        image: UIImage(named: Constants.beltImageName), tag: 1, coordinateX: 140)
+        createItemsView(title: Constants.leatherCaseText,
+                        image: UIImage(named: Constants.leatherImageName), tag: 2, coordinateX: 280)
         
-        createSearchLabel(title: Constants.airPodsLabl, coordinateY: 530)
-        createSearchLabel(title: Constants.appleLabl, coordinateY: 580)
-        createSearchLabel(title: Constants.beatsLabl, coordinateY: 630)
-        createSearchLabel(title: Constants.appleLabl, coordinateY: 680)
+        createSearchLabel(title: Constants.airPodsText, coordinateY: 530)
+        createSearchLabel(title: Constants.appleText, coordinateY: 580)
+        createSearchLabel(title: Constants.beatsText, coordinateY: 630)
+        createSearchLabel(title: Constants.appleText, coordinateY: 680)
     }
     
     private func createItemsView(title: String, image: UIImage?, tag: Int, coordinateX: Int) {
@@ -139,7 +139,7 @@ final class SearchViewController: UIViewController {
     private func createSearchLabel(title: String, coordinateY: Int) {
         let funcView = UIView(frame: CGRect(x: 30, y: coordinateY, width: 240, height: 50))
         
-        let imageView = UIImageView(image: UIImage(systemName: Constants.glassImage))
+        let imageView = UIImageView(image: UIImage(systemName: Constants.glassImageName))
         imageView.frame = CGRect(x: 0, y: 13, width: 15, height: 15)
         imageView.tintColor = .systemGray2
         funcView.addSubview(imageView)
@@ -163,7 +163,7 @@ final class SearchViewController: UIViewController {
     
     private func goToProductVC(image: UIImage?, text: String) {
         let productVC = ProductViewController()
-        productVC.picture = image
+        productVC.pictureImage = image
         productVC.text = text
         navigationController?.pushViewController(productVC, animated: true)
     }
@@ -171,12 +171,12 @@ final class SearchViewController: UIViewController {
     // MARK: - Private Action
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
         switch sender.view?.tag {
-        case 0: goToProductVC(image: UIImage(named: Constants.caseImage),
-                              text: Constants.caseMacLabl)
-        case 1: goToProductVC(image: UIImage(named: Constants.beltImage),
-                              text: Constants.beltLabl)
-        case 2: goToProductVC(image: UIImage(named: Constants.leatherImage),
-                              text: Constants.leatherCaseLabl)
+        case 0: goToProductVC(image: UIImage(named: Constants.caseImageName),
+                              text: Constants.caseMacText)
+        case 1: goToProductVC(image: UIImage(named: Constants.beltImageName),
+                              text: Constants.beltText)
+        case 2: goToProductVC(image: UIImage(named: Constants.leatherImageName),
+                              text: Constants.leatherCaseText)
         default: break
         }
     }
