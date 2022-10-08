@@ -21,14 +21,14 @@ final class ProductViewController: UIViewController {
     }()
     
     private lazy var productImageView: UIImageView = {
-        let imageView = UIImageView(image: picture)
+        let imageView = UIImageView(image: pictureImage)
         imageView.frame = CGRect(x: view.center.x - 150, y: 150, width: 300, height: 300)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     // MARK: - Public property
-    var picture: UIImage?
+    var pictureImage: UIImage?
     var text: String?
     
     // MARK: - LifeCycle
@@ -42,6 +42,7 @@ final class ProductViewController: UIViewController {
         view.backgroundColor = .black
         view.addSubview(productLabel)
         view.addSubview(productImageView)
+        navigationController?.navigationBar.topItem?.title = "Поиск"
     }
     
 }

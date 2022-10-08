@@ -8,7 +8,7 @@
 import UIKit
 
 /// Контроллер tapBara
-final class TabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
     
     // MARK: - Private property
     private let buyVC = BuyViewController()
@@ -25,6 +25,7 @@ final class TabBarController: UITabBarController {
     // MARK: - Private method
     private func setup() {
         let navController = UINavigationController(rootViewController: searchVC)
+        searchVC.navigationItem.title = "Поиск"
         viewControllers = [buyVC, forYouVC, navController, basketVC]
         tabBar.barTintColor = .black
         tabBar.unselectedItemTintColor = .gray
