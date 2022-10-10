@@ -26,6 +26,7 @@ final class ProductViewController: UIViewController {
         static let orderInfo = "Заказ сегодня в течении дня, доставка:"
         static let dateTime = "Чт 25 Фев - Бесплатно"
         static let address = "Варианты доставки для местоположения: 115533"
+        static let search = "Поиск"
     }
     
     // MARK: - Visual components
@@ -217,7 +218,7 @@ final class ProductViewController: UIViewController {
         view.addSubview(placeLabel)
         view.addSubview(horisontalScrollView)
         view.addSubview(circleImageView)
-        navigationController?.navigationBar.topItem?.title = "Поиск"
+        navigationController?.navigationBar.topItem?.title = Constants.search
     }
     
     private func addImageViewToScrollView() {
