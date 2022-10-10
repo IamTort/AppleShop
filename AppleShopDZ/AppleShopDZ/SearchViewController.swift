@@ -8,7 +8,7 @@
 import UIKit
 
 /// Контроллер экрана поиска
-final class SearchViewController: UIViewController, UIScrollViewDelegate {
+final class SearchViewController: UIViewController {
 
     // MARK: - Private enum
     private enum Constants {
@@ -30,6 +30,7 @@ final class SearchViewController: UIViewController, UIScrollViewDelegate {
         static let iphoneText = "Cравните модели IPhone"
         static let iphoneProText = "IPhone 12 Pro"
         static let iphoneProImageName = "Iphone"
+        static let emptyTitle = " "
     }
     
     var productsInfo = [Product(infoText: Constants.caseMacText, images: [Constants.caseImageName, "Image", "case3"],
@@ -102,14 +103,15 @@ final class SearchViewController: UIViewController, UIScrollViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         navigationController?.navigationBar.backgroundColor = .clear
+        navigationItem.title = Constants.emptyTitle
     }
     
     // MARK: - Private method
     private func setupUI() {
         view.backgroundColor = .black
-        navigationItem.title = " "
+        navigationItem.title = Constants.emptyTitle
         tabBarController?.title = Constants.title
         view.addSubview(titleLabel)
         view.addSubview(searchBar)
@@ -180,15 +182,11 @@ final class SearchViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    private func goToProductVC(tag: Int) {
-        let productVC = ProductViewController()
-        productVC.productInfo = productsInfo[tag]
-        navigationController?.pushViewController(productVC, animated: true)
-    }
-    
     // MARK: - Private Action
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
         guard let tag = sender.view?.tag else { return }
-        goToProductVC(tag: tag)
+        let productVC = ProductViewController()
+        productVC.productInfo = productsInfo[tag]
+        navigationController?.pushViewController(productVC, animated: true)
     }
 }

@@ -217,6 +217,7 @@ final class ProductViewController: UIViewController {
         view.addSubview(placeLabel)
         view.addSubview(horisontalScrollView)
         view.addSubview(circleImageView)
+        navigationController?.navigationBar.topItem?.title = "Поиск"
     }
     
     private func addImageViewToScrollView() {
