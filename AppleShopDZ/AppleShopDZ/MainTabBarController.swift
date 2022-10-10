@@ -25,9 +25,9 @@ final class MainTabBarController: UITabBarController {
     // MARK: - Private method
     private func setup() {
         let navController = UINavigationController(rootViewController: searchVC)
-        searchVC.navigationItem.title = "Поиск"
         viewControllers = [buyVC, forYouVC, navController, basketVC]
         tabBar.barTintColor = .black
+        tabBar.backgroundColor = .systemGray6
         tabBar.unselectedItemTintColor = .gray
         setupViewContoller(buyVC, title: "Купить", image: UIImage(systemName: "laptopcomputer.and.iphone"))
         setupViewContoller(forYouVC, title: "Для Вас", image: UIImage(systemName: "person.crop.circle.fill"))

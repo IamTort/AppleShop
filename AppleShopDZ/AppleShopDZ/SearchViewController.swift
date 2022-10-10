@@ -8,7 +8,7 @@
 import UIKit
 
 /// Контроллер экрана поиска
-final class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Private enum
     private enum Constants {
@@ -89,6 +89,11 @@ final class SearchViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.backgroundColor = .clear
+    }
+    
     // MARK: - Private method
     private func setupUI() {
         view.backgroundColor = .black
@@ -163,7 +168,7 @@ final class SearchViewController: UIViewController {
     
     private func goToProductVC(image: UIImage?, text: String) {
         let productVC = ProductViewController()
-        productVC.pictureImage = image
+        productVC.picture = image
         productVC.text = text
         navigationController?.pushViewController(productVC, animated: true)
     }
