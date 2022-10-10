@@ -51,7 +51,7 @@ final class ProductViewController: UIViewController {
     
     private lazy var productLabel: UILabel = {
         let label = UILabel()
-        label.text = text
+        label.text = productInfo?.infoText
         label.textAlignment = .center
         label.frame = CGRect(x: view.center.x - 200, y: 110, width: 400, height: 40)
         label.textColor = .white
@@ -61,7 +61,7 @@ final class ProductViewController: UIViewController {
     
     private lazy var costLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.price
+        label.text = productInfo?.price
         label.textAlignment = .center
         label.frame = CGRect(x: view.center.x - 200, y: 135, width: 400, height: 40)
         label.textColor = .systemGray2
@@ -74,34 +74,12 @@ final class ProductViewController: UIViewController {
         scrollView.frame = CGRect(x: 0, y: 200, width: view.frame.width, height: 250)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = true
-        scrollView.contentSize = CGSize(width: 1200, height: 200)
         return scrollView
-    }()
-    
-    private lazy var productImageView: UIImageView = {
-        let imageView = UIImageView(image: picture)
-        imageView.frame = CGRect(x: view.center.x - 135, y: -10, width: 270, height: 270)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private lazy var productTwoImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: Constants.image))
-        imageView.frame = CGRect(x: (view.center.x * 3) - 135, y: -10, width: 270, height: 270)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private lazy var productThreeImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: Constants.caseImage))
-        imageView.frame = CGRect(x: (view.center.x * 5) - 175, y: -10, width: 270, height: 270)
-        imageView.contentMode = .scaleAspectFit
-        return imageView
     }()
     
     private lazy var repeatInfoLabel: UILabel = {
         let label = UILabel()
-        label.text = text
+        label.text = productInfo?.infoText
         label.textAlignment = .center
         label.frame = CGRect(x: view.center.x - 200, y: 460, width: 400, height: 40)
         label.textColor = .systemGray2
@@ -127,7 +105,7 @@ final class ProductViewController: UIViewController {
     
     private lazy var circleImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: Constants.circle))
-        imageView.frame = CGRect(x: (view.bounds.width / 2) - 1, y: 529, width: 56, height: 56)
+        imageView.frame = CGRect(x: (view.bounds.width / 2) - 1, y: 529, width: 56, height: 55)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -209,8 +187,7 @@ final class ProductViewController: UIViewController {
     }()
     
     // MARK: - Public property
-    var picture: UIImage?
-    var text: String?
+    var productInfo: Product?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -218,17 +195,15 @@ final class ProductViewController: UIViewController {
         setupUI()
     }
     
-    // MARK: - Private method
+    // MARK: - Private methods
     private func setupUI() {
         navigationController?.navigationBar.backgroundColor = .systemGray6
         navigationController?.navigationBar.addSubview(heartButton)
         navigationController?.navigationBar.addSubview(shareButton)
         view.backgroundColor = .black
+        addImageViewToScrollView()
         view.addSubview(productLabel)
         view.addSubview(costLabel)
-        horisontalScrollView.addSubview(productImageView)
-        horisontalScrollView.addSubview(productTwoImageView)
-        horisontalScrollView.addSubview(productThreeImageView)
         view.addSubview(repeatInfoLabel)
         view.addSubview(colorButton)
         view.addSubview(colorDarkButton)
@@ -242,5 +217,24 @@ final class ProductViewController: UIViewController {
         view.addSubview(placeLabel)
         view.addSubview(horisontalScrollView)
         view.addSubview(circleImageView)
+    }
+    
+    private func addImageViewToScrollView() {
+        var coordinateX = 0
+        guard let images = productInfo?.images else { return }
+        for image in images {
+            let imageView = makeImageView(image: image)
+            imageView.frame = CGRect(x: coordinateX, y: 0, width: 400, height: 200)
+            horisontalScrollView.addSubview(imageView)
+            coordinateX += 420
+        }
+        let maxXContentSizeProductsScrollView = horisontalScrollView.subviews.map { $0.frame.maxX }.max()
+        horisontalScrollView.contentSize = CGSize(width: maxXContentSizeProductsScrollView ?? 0, height: 200)
+    }
+    
+    private func makeImageView(image: String) -> UIImageView {
+        let imageView = UIImageView(image: UIImage(named: image))
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }
 }

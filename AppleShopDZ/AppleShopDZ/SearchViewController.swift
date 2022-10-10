@@ -28,7 +28,19 @@ final class SearchViewController: UIViewController, UIScrollViewDelegate {
         static let appleText = "AppleCare"
         static let beatsText = "Beats"
         static let iphoneText = "Cравните модели IPhone"
+        static let iphoneProText = "IPhone 12 Pro"
+        static let iphoneProImageName = "Iphone"
     }
+    
+    var productsInfo = [Product(infoText: Constants.caseMacText, images: [Constants.caseImageName, "Image", "case3"],
+                                price: "3 990.00 руб."),
+                        Product(infoText: Constants.beltText, images: [Constants.beltImageName, "clock2"],
+                                price: "2 990.00 руб."),
+                        Product(infoText: Constants.leatherCaseText,
+                                images: [Constants.leatherImageName, "caseBrown2", "caseBrown3"],
+                                price: "7 990.00 руб."),
+                        Product(infoText: Constants.iphoneProText, images: [Constants.iphoneProImageName],
+                                price: "127 990.00 руб.")]
     
     // MARK: - Visual components
     private lazy var titleLabel: UILabel = {
@@ -67,10 +79,10 @@ final class SearchViewController: UIViewController, UIScrollViewDelegate {
     
     private lazy var horisontalScrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.frame = CGRect(x: 20, y: 250, width: view.frame.width - 20, height: 200)
+        scrollView.frame = CGRect(x: 20, y: 250, width: view.frame.width - 35, height: 200)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentSize = CGSize(width: 600, height: 200)
+        scrollView.contentSize = CGSize(width: 550, height: 200)
         return scrollView
     }()
     
@@ -112,6 +124,8 @@ final class SearchViewController: UIViewController, UIScrollViewDelegate {
                         image: UIImage(named: Constants.beltImageName), tag: 1, coordinateX: 140)
         createItemsView(title: Constants.leatherCaseText,
                         image: UIImage(named: Constants.leatherImageName), tag: 2, coordinateX: 280)
+        createItemsView(title: Constants.iphoneProText,
+                        image: UIImage(named: Constants.iphoneProImageName), tag: 3, coordinateX: 420)
         
         createSearchLabel(title: Constants.airPodsText, coordinateY: 530)
         createSearchLabel(title: Constants.appleText, coordinateY: 580)
@@ -166,23 +180,15 @@ final class SearchViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    private func goToProductVC(image: UIImage?, text: String) {
+    private func goToProductVC(tag: Int) {
         let productVC = ProductViewController()
-        productVC.picture = image
-        productVC.text = text
+        productVC.productInfo = productsInfo[tag]
         navigationController?.pushViewController(productVC, animated: true)
     }
     
     // MARK: - Private Action
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
-        switch sender.view?.tag {
-        case 0: goToProductVC(image: UIImage(named: Constants.caseImageName),
-                              text: Constants.caseMacText)
-        case 1: goToProductVC(image: UIImage(named: Constants.beltImageName),
-                              text: Constants.beltText)
-        case 2: goToProductVC(image: UIImage(named: Constants.leatherImageName),
-                              text: Constants.leatherCaseText)
-        default: break
-        }
+        guard let tag = sender.view?.tag else { return }
+        goToProductVC(tag: tag)
     }
 }

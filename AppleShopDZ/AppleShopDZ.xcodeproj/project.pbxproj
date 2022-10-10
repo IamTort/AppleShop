@@ -18,6 +18,7 @@
 		FAD8414628EEF9BB00B32CFB /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414528EEF9BB00B32CFB /* ForYouViewController.swift */; };
 		FAD8414828EEF9F900B32CFB /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414728EEF9F900B32CFB /* BasketViewController.swift */; };
 		FAD8414A28EF2DE800B32CFB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8414928EF2DE800B32CFB /* ProductViewController.swift */; };
+		FAD8417428F4065C00B32CFB /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8417328F4065C00B32CFB /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FAD8414528EEF9BB00B32CFB /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
 		FAD8414728EEF9F900B32CFB /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		FAD8414928EF2DE800B32CFB /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		FAD8417328F4065C00B32CFB /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		FAD8412B28EECC9B00B32CFB /* AppleShopDZ */ = {
 			isa = PBXGroup;
 			children = (
+				FAD8417528F4066500B32CFB /* Model */,
 				FAD8412C28EECC9B00B32CFB /* AppDelegate.swift */,
 				FAD8412E28EECC9B00B32CFB /* SceneDelegate.swift */,
 				FAD8413228EECC9B00B32CFB /* Main.storyboard */,
@@ -80,6 +83,14 @@
 				FAD8414928EF2DE800B32CFB /* ProductViewController.swift */,
 			);
 			path = AppleShopDZ;
+			sourceTree = "<group>";
+		};
+		FAD8417528F4066500B32CFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAD8417328F4065C00B32CFB /* Product.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 			files = (
 				FAD8413128EECC9B00B32CFB /* SearchViewController.swift in Sources */,
 				FAD8414428EEF9AC00B32CFB /* BuyViewController.swift in Sources */,
+				FAD8417428F4065C00B32CFB /* Product.swift in Sources */,
 				FAD8414828EEF9F900B32CFB /* BasketViewController.swift in Sources */,
 				FAD8412D28EECC9B00B32CFB /* AppDelegate.swift in Sources */,
 				FAD8414628EEF9BB00B32CFB /* ForYouViewController.swift in Sources */,
