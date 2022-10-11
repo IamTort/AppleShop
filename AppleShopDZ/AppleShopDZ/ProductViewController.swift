@@ -27,6 +27,7 @@ final class ProductViewController: UIViewController {
         static let dateTime = "Чт 25 Фев - Бесплатно"
         static let address = "Варианты доставки для местоположения: 115533"
         static let search = "Поиск"
+        static let documentImage = "doc"
     }
     
     // MARK: - Visual components
@@ -187,6 +188,15 @@ final class ProductViewController: UIViewController {
         return label
     }()
     
+    private lazy var pdfImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: Constants.documentImage))
+        imageView.isUserInteractionEnabled = true
+        imageView.frame = CGRect(x: view.bounds.width - 140, y: 147, width: 15, height: 15)
+        imageView.tintColor = .systemGray2
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     // MARK: - Public property
     var productInfo: Product?
     
@@ -218,6 +228,10 @@ final class ProductViewController: UIViewController {
         view.addSubview(placeLabel)
         view.addSubview(horisontalScrollView)
         view.addSubview(circleImageView)
+        view.addSubview(pdfImageView)
+        pdfImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pdfShowAction(_:))))
+        horisontalScrollView.addGestureRecognizer(UITapGestureRecognizer(
+            target: self, action: #selector(tapAction)))
         navigationController?.navigationBar.topItem?.title = Constants.search
     }
     
@@ -227,6 +241,7 @@ final class ProductViewController: UIViewController {
         for image in images {
             let imageView = makeImageView(image: image)
             imageView.frame = CGRect(x: coordinateX, y: 0, width: 400, height: 200)
+            
             horisontalScrollView.addSubview(imageView)
             coordinateX += 420
         }
@@ -238,5 +253,21 @@ final class ProductViewController: UIViewController {
         let imageView = UIImageView(image: UIImage(named: image))
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }
+    
+    // MARK: - Private Action
+    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+        let webVC = WebViewController()
+        webVC.productInfo = productInfo
+        webVC.hidesBottomBarWhenPushed = true
+        webVC.tabBarController?.tabBar.isHidden = true
+        present(webVC, animated: true)
+    }
+    
+    @objc private func pdfShowAction(_ sender: UITapGestureRecognizer) {
+        let webVC = PDFViewController()
+        webVC.hidesBottomBarWhenPushed = true
+        webVC.tabBarController?.tabBar.isHidden = true
+        present(webVC, animated: true)
     }
 }
