@@ -104,9 +104,7 @@ final class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.backgroundColor = .clear
-        navigationItem.title = Constants.emptyTitle
-        tabBarController?.tabBar.backgroundColor = .black
+        tabAndNavigattionSettings()
     }
     
     // MARK: - Private method
@@ -136,6 +134,13 @@ final class SearchViewController: UIViewController {
         createSearchLabel(title: Constants.appleText, coordinateY: 680)
     }
     
+    private func tabAndNavigattionSettings() {
+        tabBarController?.overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .dark
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationItem.title = Constants.emptyTitle
+    }
+    
     private func createItemsView(title: String, image: UIImage?, tag: Int, coordinateX: Int) {
         let view = UIView(frame: CGRect(x: coordinateX, y: 0, width: 130, height: 200))
         view.backgroundColor = UIColor.systemGray6
@@ -159,12 +164,12 @@ final class SearchViewController: UIViewController {
     }
     
     private func createSearchLabel(title: String, coordinateY: Int) {
-        let funcView = UIView(frame: CGRect(x: 30, y: coordinateY, width: 240, height: 50))
+        let cellView = UIView(frame: CGRect(x: 30, y: coordinateY, width: 240, height: 50))
         
         let imageView = UIImageView(image: UIImage(systemName: Constants.glassImageName))
         imageView.frame = CGRect(x: 0, y: 13, width: 15, height: 15)
         imageView.tintColor = .systemGray2
-        funcView.addSubview(imageView)
+        cellView.addSubview(imageView)
         
         let label = UILabel(frame: CGRect(x: 25, y: 5, width: 300, height: 30))
         label.text = title
@@ -172,15 +177,14 @@ final class SearchViewController: UIViewController {
         label.textColor = .white
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
-        funcView.addSubview(label)
+        cellView.addSubview(label)
         
         let lineView = UIView()
         lineView.backgroundColor = .systemGray2
         lineView.frame = CGRect(x: 0, y: 43, width: view.bounds.width - 50, height: 0.3)
-        funcView.addSubview(lineView)
+        cellView.addSubview(lineView)
         
-        view.addSubview(funcView)
-        
+        view.addSubview(cellView)
     }
     
     // MARK: - Private Action

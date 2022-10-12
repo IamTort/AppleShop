@@ -201,6 +201,10 @@ final class ProductViewController: UIViewController {
     var productInfo: Product?
     
     // MARK: - LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        tabSettings()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -233,6 +237,11 @@ final class ProductViewController: UIViewController {
         horisontalScrollView.addGestureRecognizer(UITapGestureRecognizer(
             target: self, action: #selector(tapAction)))
         navigationController?.navigationBar.topItem?.title = Constants.search
+    }
+    
+    private func tabSettings() {
+        tabBarController?.overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .dark
     }
     
     private func addImageViewToScrollView() {

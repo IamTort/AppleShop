@@ -61,9 +61,10 @@ final class ForYouViewController: UIViewController {
     
     private lazy var verticalScrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: view.bounds.height)
+        scrollView.frame = CGRect(x: 0, y: 110, width: view.bounds.width, height: view.bounds.height)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = true
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: 1000)
         return scrollView
     }()
     
@@ -247,26 +248,50 @@ final class ForYouViewController: UIViewController {
     }
     
     private func tabBarSettings() {
-        tabBarController?.tabBar.backgroundColor = UIColor(named: Constants.colorGray)
+        tabBarController?.overrideUserInterfaceStyle = .light
+        overrideUserInterfaceStyle = .light
         tabBarController?.tabBar.unselectedItemTintColor = .lightGray
     }
     
     private func createBarButtonItem() {
-        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        avatarButton = UIButton(frame: CGRect(x: 0, y: 30, width: 50, height: 50))
         avatarButton.addTarget(self, action: #selector(changeAvatarImage), for: .allEvents)
         avatarButton.layer.cornerRadius = 25
         avatarButton.clipsToBounds = true
-        contentView.addSubview(avatarButton)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: contentView)
+        navigationController?.navigationBar.addSubview(avatarButton)
+        avatarButton.frame = CGRect(x: view.frame.width - 70, y: 20, width: 50, height: 50)
+        avatarButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([avatarButtonTrailingConstraint(), avatarButtonBottomConstraint()])
         guard let data = UserDefaults.standard.value(forKey: Constants.avaKey) as? Data,
-              let picture = UIImage(data: data)
+              let picture = UIImage(data: data)?.resizeImage(to: CGSize(width: 50, height: 50))
         else {
             let picture = Constants.startImage
-            avatarButton.setBackgroundImage(UIImage(named: picture), for: .normal)
+            avatarButton.setBackgroundImage(UIImage(
+                named: picture)?.resizeImage(to: CGSize(width: 50, height: 50)), for: .normal)
             return
         }
         avatarButton.setBackgroundImage(picture, for: .normal)
+    }
+    
+    private func avatarButtonTrailingConstraint() -> NSLayoutConstraint {
+        return NSLayoutConstraint(
+            item: avatarButton,
+            attribute: .trailingMargin,
+            relatedBy: .equal,
+            toItem: navigationController?.navigationBar,
+            attribute: .trailingMargin,
+            multiplier: 1.0,
+            constant: -20)
+    }
+    
+    private func avatarButtonBottomConstraint() -> NSLayoutConstraint {
+        return NSLayoutConstraint(
+            item: avatarButton,
+            attribute: .bottom,
+            relatedBy: .equal,
+            toItem: navigationController?.navigationBar,
+            attribute: .bottom,
+            multiplier: 1.0,
+            constant: -8)
     }
     
     private func createStateLabel(text: String, coordinateX: Int) -> UILabel {

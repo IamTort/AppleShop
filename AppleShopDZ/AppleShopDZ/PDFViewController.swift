@@ -9,17 +9,14 @@ import UIKit
 import WebKit
 
 /// Контроллер вызова ПДФ файла
-class PDFViewController: UIViewController, UIWebViewDelegate, WKNavigationDelegate {
+class PDFViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
     // MARK: - Private Visual Components
-    private lazy var wkWebView: UIWebView = {
-        var webView = UIWebView()
+    private lazy var wkWebView: WKWebView = {
+        var webView = WKWebView()
         webView.frame = view.bounds
         return webView
     }()
-    
-    // MARK: - Private property
-    private let  application = UIApplication.shared
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -28,13 +25,13 @@ class PDFViewController: UIViewController, UIWebViewDelegate, WKNavigationDelega
     }
     
     private func setupView() {
-        wkWebView.delegate = self
-        wkWebView.scalesPageToFit = true
+        wkWebView.uiDelegate = self
+        wkWebView.sizeToFit()
         
         view.addSubview(wkWebView)
         if let urlPdf = Bundle.main.url(forResource: "prices", withExtension: "pdf") {
             let request = URLRequest(url: urlPdf)
-            wkWebView.loadRequest(request)
+            wkWebView.load(request)
         }
     }
 }
