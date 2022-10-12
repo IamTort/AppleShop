@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="XmV-nB-X84">
             <objects>
-                <viewController id="Ny9-QT-SwG" customClass="SearchViewController" customModule="AppleShopDZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ny9-QT-SwG" customClass="MainTabBarController" customModule="AppleShopDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I4I-Rp-8b7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
