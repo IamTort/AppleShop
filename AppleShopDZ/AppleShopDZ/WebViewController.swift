@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 /// Контроллер экрана браузер
-final class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+final class WebViewController: UIViewController {
     
     // MARK: - Private Enum
     private enum Constants {
@@ -87,8 +87,9 @@ final class WebViewController: UIViewController, WKUIDelegate, WKNavigationDeleg
     }
     
     private func observeProgressView() {
-        observation = wkWebView.observe(\.estimatedProgress, options: [.new]) { _, _ in
-            self.myProgressView.progress = Float(self.wkWebView.estimatedProgress)
+        observation = wkWebView.observe(\.estimatedProgress, options: [.new]) { [weak self] _, _ in
+            guard let estimatProgres = self?.wkWebView.estimatedProgress else { return }
+            self?.myProgressView.progress = Float(estimatProgres)
         }
     }
     

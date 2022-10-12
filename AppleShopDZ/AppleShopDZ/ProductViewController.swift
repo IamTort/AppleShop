@@ -201,13 +201,14 @@ final class ProductViewController: UIViewController {
     var productInfo: Product?
     
     // MARK: - LifeCycle
-    override func viewWillAppear(_ animated: Bool) {
-        tabSettings()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabSettings()
     }
     
     // MARK: - Private methods

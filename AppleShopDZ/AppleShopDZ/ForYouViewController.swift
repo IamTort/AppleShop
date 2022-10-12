@@ -193,18 +193,17 @@ final class ForYouViewController: UIViewController {
         return button
     }()
     
-    // MARK: - Private property
     private var avatarButton = UIButton()
     
     // MARK: - LifeCycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarSettings()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarSettings()
     }
     
     // MARK: - Private methods
@@ -254,7 +253,7 @@ final class ForYouViewController: UIViewController {
     }
     
     private func createBarButtonItem() {
-        avatarButton.addTarget(self, action: #selector(changeAvatarImage), for: .allEvents)
+        avatarButton.addTarget(self, action: #selector(changeAvatarImageAction), for: .allEvents)
         avatarButton.layer.cornerRadius = 25
         avatarButton.clipsToBounds = true
         navigationController?.navigationBar.addSubview(avatarButton)
@@ -303,7 +302,7 @@ final class ForYouViewController: UIViewController {
         return label
     }
     
-    @objc private  func changeAvatarImage(_ sender: UIButton) {
+    @objc private  func changeAvatarImageAction(_ sender: UIButton) {
         let albumPickerController = UIImagePickerController()
         albumPickerController.sourceType = .savedPhotosAlbum
         albumPickerController.allowsEditing = true

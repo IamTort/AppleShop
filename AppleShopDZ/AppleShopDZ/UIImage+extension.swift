@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// UIImage + extension
+/// Изменение размера и положения изображения до выбранного значения
 extension UIImage {
      func resizeImage(to size: CGSize) -> UIImage {
          UIGraphicsImageRenderer(size: size).image { _ in

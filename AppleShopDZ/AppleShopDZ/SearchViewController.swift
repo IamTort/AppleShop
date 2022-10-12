@@ -31,17 +31,33 @@ final class SearchViewController: UIViewController {
         static let iphoneProText = "IPhone 12 Pro"
         static let iphoneProImageName = "Iphone"
         static let emptyTitle = " "
+        static let linkOneText = "https://www.apple.com/shop/product/HQ292ZM/A/incase-compact-sleeve-in-flight-nylon-for-16-macbook-pro?fnode=b10a84384e071436553a2da8ea3de23027afd3e6eeb03bbedcdfb2f71eee40e63e00f20899b8924b0d44461da0369a1e64d7d06a8e86212315349d6e5a7de934116ecb75655b673967277d9727696683343f17b21d8d6c649059bb2148a6b4fb0756eac5dfc406b7c161b557cdc05fc1"
+        static let linkTwoText = "https://www.apple.com/shop/product/MJ4V3AM/A/40mm-black-unity-sport-band-regular?fnode=fa281a0a903d3f92b5cad11ca7162ba813b011f1cef41072ee7f88d7b428ef56b4394c07449a37b1347c245e88e311d657e0200aedd7650751cd77f655bac590f811072d9296ec0386bf0a675d35df8d"
+        static let linkThreeText = "https://www.apple.com/shop/product/HPFG2ZM/A/von-holzhausen-macbook-sleeve-for-13-macbook?fnode=b407190a49ac9cb3006112edaeb3a768de20f06db85f95b59f53f882c8548f609e5806982c667ad7f362cadd2582866c00f2e62c48af6bc2a94b9a9670defbcf62cf1ae91e5a33fa3c3a51a6f4ca01acef7c03a758293632760d62fd0db93448885ef2182d2117b15c7560060f5701eb"
+        static let linkFourText = "https://www.apple.com/shop/buy-iphone/iphone-14-pro"
+        static let caseMacPrice = "3 990.00 руб."
+        static let beltPrice = "2 990.00 руб."
+        static let leatherCasePrice = "7 990.00 руб."
+        static let iphonePrice = "127 990.00 руб."
+        static let macTwoImageName = "Image"
+        static let macThreeImageName = "case3"
+        static let beltTwoImageName = "clock2"
+        static let leatherTwoImageName = "caseBrown2"
+        static let leatherThreeImageName = "caseBrown3"
     }
     
-    var productsInfo = [Product(infoText: Constants.caseMacText, images: [Constants.caseImageName, "Image", "case3"],
-                                price: "3 990.00 руб.", link: "https://www.apple.com/shop/product/HQ292ZM/A/incase-compact-sleeve-in-flight-nylon-for-16-macbook-pro?fnode=b10a84384e071436553a2da8ea3de23027afd3e6eeb03bbedcdfb2f71eee40e63e00f20899b8924b0d44461da0369a1e64d7d06a8e86212315349d6e5a7de934116ecb75655b673967277d9727696683343f17b21d8d6c649059bb2148a6b4fb0756eac5dfc406b7c161b557cdc05fc1"),
-                        Product(infoText: Constants.beltText, images: [Constants.beltImageName, "clock2"],
-                                price: "2 990.00 руб.", link: "https://www.apple.com/shop/product/MJ4V3AM/A/40mm-black-unity-sport-band-regular?fnode=fa281a0a903d3f92b5cad11ca7162ba813b011f1cef41072ee7f88d7b428ef56b4394c07449a37b1347c245e88e311d657e0200aedd7650751cd77f655bac590f811072d9296ec0386bf0a675d35df8d"),
-                        Product(infoText: Constants.leatherCaseText,
-                                images: [Constants.leatherImageName, "caseBrown2", "caseBrown3"],
-                                price: "7 990.00 руб.", link: "https://www.apple.com/shop/product/HPFG2ZM/A/von-holzhausen-macbook-sleeve-for-13-macbook?fnode=b407190a49ac9cb3006112edaeb3a768de20f06db85f95b59f53f882c8548f609e5806982c667ad7f362cadd2582866c00f2e62c48af6bc2a94b9a9670defbcf62cf1ae91e5a33fa3c3a51a6f4ca01acef7c03a758293632760d62fd0db93448885ef2182d2117b15c7560060f5701eb"),
+    var productsInfo = [Product(infoText: Constants.caseMacText, images:
+                                    [Constants.caseImageName, Constants.macTwoImageName, Constants.macThreeImageName],
+                                price: Constants.caseMacPrice, link: Constants.linkOneText),
+                        Product(infoText: Constants.beltText, images:
+                                    [Constants.beltImageName, Constants.beltTwoImageName],
+                                price: Constants.beltPrice, link: Constants.linkTwoText),
+                        Product(infoText: Constants.leatherCaseText, images:
+                                    [Constants.leatherImageName, Constants.leatherTwoImageName,
+                                     Constants.leatherThreeImageName],
+                                price: Constants.leatherCasePrice, link: Constants.linkThreeText),
                         Product(infoText: Constants.iphoneProText, images: [Constants.iphoneProImageName],
-                                price: "127 990.00 руб.", link: "https://www.apple.com/shop/buy-iphone/iphone-14-pro")]
+                                price: Constants.iphonePrice, link: Constants.linkFourText)]
     
     // MARK: - Visual components
     private lazy var titleLabel: UILabel = {
