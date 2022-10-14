@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol protocolPageViewController {
+protocol protocolPageViewDelegate: AnyObject {
     func goForward()
 }
 
@@ -23,17 +23,17 @@ final class PageViewController: UIPageViewController {
         static let textDescriptionTwo = "Также вам доступно отслеживание вашего заказа в реальном времени"
         static let textDescriptionThree =
         "Актуальные цены и количество доступной техники вы можете узнать в разделе Поиск"
-        static let firstImage = "5"
-        static let secondImage = "6"
-        static let thirdImage = "7"
+        static let firstImageName = "5"
+        static let secondImageName = "6"
+        static let thirdImageName = "7"
         static let defaultsKey = "presentationWasViewed"
     }
     
     // MARK: - Private property
-    private let presentScreenContent = [Constants.titleOne, Constants.titleTwo, Constants.titleThree]
-    private let emojiArray = [Constants.textDescriptionOne, Constants.textDescriptionTwo,
+    private let presentScreenTitleContents = [Constants.titleOne, Constants.titleTwo, Constants.titleThree]
+    private let textDescriptionContents = [Constants.textDescriptionOne, Constants.textDescriptionTwo,
                               Constants.textDescriptionThree]
-    private let images = [Constants.firstImage, Constants.secondImage, Constants.thirdImage]
+    private let images = [Constants.firstImageName, Constants.secondImageName, Constants.thirdImageName]
     private let pageControl = UIPageControl.appearance()
     
     // MARK: - LifeCycle
@@ -55,16 +55,16 @@ final class PageViewController: UIPageViewController {
 
     private func showViewControllerAtIndex(_ index: Int) -> ContentViewController? {
         guard index >= 0 else { return nil }
-        guard index < presentScreenContent.count else {
+        guard index < presentScreenTitleContents.count else {
             UserDefaults.standard.set(true, forKey: Constants.defaultsKey)
             return nil}
         
         let contentViewController = ContentViewController()
         
-        contentViewController.presentText = presentScreenContent[index]
-        contentViewController.textDescription = emojiArray[index]
+        contentViewController.presentText = presentScreenTitleContents[index]
+        contentViewController.textDescription = textDescriptionContents[index]
         contentViewController.currentPage = index
-        contentViewController.numberOfPages = presentScreenContent.count
+        contentViewController.pagesNumber = presentScreenTitleContents.count
         contentViewController.imageText = images[index]
         contentViewController.delegate = self
         
@@ -93,7 +93,7 @@ extension PageViewController: UIPageViewControllerDataSource {
 }
 
 // MARK: - UIPageViewControllerDelegate, protocolPageViewController
-extension PageViewController: UIPageViewControllerDelegate, protocolPageViewController {
+extension PageViewController: UIPageViewControllerDelegate, protocolPageViewDelegate {
     func goForward() {
         guard let currentPage = viewControllers?.first else { return }
         guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else { return }

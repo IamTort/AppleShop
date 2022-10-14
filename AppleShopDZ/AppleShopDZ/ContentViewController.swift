@@ -89,8 +89,8 @@ final class ContentViewController: UIViewController {
     var textDescription = Constants.emptyText
     var imageText = Constants.emptyText
     var currentPage = 0
-    var numberOfPages = 0
-    var delegate: protocolPageViewController?
+    var pagesNumber = 0
+    weak var delegate: protocolPageViewDelegate?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -118,7 +118,7 @@ final class ContentViewController: UIViewController {
         backgroundImageView.addSubview(textLabel)
         view.addSubview(backgroundImageView)
         backgroundImageView.image = UIImage(named: imageText)
-        pageControl.numberOfPages = numberOfPages
+        pageControl.numberOfPages = pagesNumber
         nextButton.addTarget(self, action: #selector(goForwardAction), for: .allEvents)
         pageControl.currentPage = currentPage
         titleLabel.text = presentText
@@ -149,7 +149,7 @@ final class ContentViewController: UIViewController {
     
     // MARK: - Private Actions
     @objc func goForwardAction(_ sender: UIButton) {
-        if currentPage < numberOfPages {
+        if currentPage < pagesNumber {
             delegate?.goForward()
         }
     }
