@@ -23,6 +23,8 @@
 		FAD841A028F5E67700B32CFB /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD8419F28F5E67700B32CFB /* UIImage+extension.swift */; };
 		FAD841A228F60E7C00B32CFB /* prices.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FAD841A128F60E7B00B32CFB /* prices.pdf */; };
 		FAD841A428F6120500B32CFB /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD841A328F6120500B32CFB /* PDFViewController.swift */; };
+		FAD841EE28F737F700B32CFB /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD841ED28F737F700B32CFB /* PageViewController.swift */; };
+		FAD841F028F738A300B32CFB /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD841EF28F738A300B32CFB /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		FAD8419F28F5E67700B32CFB /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		FAD841A128F60E7B00B32CFB /* prices.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = prices.pdf; sourceTree = "<group>"; };
 		FAD841A328F6120500B32CFB /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		FAD841ED28F737F700B32CFB /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		FAD841EF28F738A300B32CFB /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 				FAD8419F28F5E67700B32CFB /* UIImage+extension.swift */,
 				FAD841A128F60E7B00B32CFB /* prices.pdf */,
 				FAD841A328F6120500B32CFB /* PDFViewController.swift */,
+				FAD841ED28F737F700B32CFB /* PageViewController.swift */,
+				FAD841EF28F738A300B32CFB /* ContentViewController.swift */,
 			);
 			path = AppleShopDZ;
 			sourceTree = "<group>";
@@ -205,10 +211,12 @@
 				FAD841A428F6120500B32CFB /* PDFViewController.swift in Sources */,
 				FAD841A028F5E67700B32CFB /* UIImage+extension.swift in Sources */,
 				FAD8419D28F4961A00B32CFB /* WebViewController.swift in Sources */,
+				FAD841F028F738A300B32CFB /* ContentViewController.swift in Sources */,
 				FAD8414828EEF9F900B32CFB /* BasketViewController.swift in Sources */,
 				FAD8412D28EECC9B00B32CFB /* AppDelegate.swift in Sources */,
 				FAD8414628EEF9BB00B32CFB /* ForYouViewController.swift in Sources */,
 				FAD8414228EEF07400B32CFB /* MainTabBarController.swift in Sources */,
+				FAD841EE28F737F700B32CFB /* PageViewController.swift in Sources */,
 				FAD8414A28EF2DE800B32CFB /* ProductViewController.swift in Sources */,
 				FAD8412F28EECC9B00B32CFB /* SceneDelegate.swift in Sources */,
 			);
